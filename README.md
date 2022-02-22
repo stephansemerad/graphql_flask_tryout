@@ -24,16 +24,17 @@
 - [Python](https://www.python.org/)
 - [Flask](https://flask.palletsprojects.com/en/2.0.x/)
 - [Tailwind CSS](https://tailwindcss.com/)
-- [Axios](https://graphql.org/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Getting Started
 
 1. Clone the repo
+
    ```sh
    git clone https://github.com/stephansemerad/graphql_flask_tryout.git
    ```
+
 2. Install Python packages
    ```
    pip install requirements.txt
