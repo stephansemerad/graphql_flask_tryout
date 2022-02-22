@@ -1,6 +1,3 @@
-'''
-Thanks to https://www.jorgehernandezramirez.com/2020/03/21/flask-and-graphql-filters-graphene-sqlalchemy-filters/
-'''
 from distutils.log import debug
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy

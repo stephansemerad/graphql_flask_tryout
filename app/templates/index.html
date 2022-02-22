@@ -47,7 +47,6 @@
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">[[row.node.surname]]</td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">[[row.node.age]]</td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">[[row.node.name]]</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">[[row.node.name]]</td>
                       </tr>
                       <!-- More people... -->
                     </tbody>
@@ -70,7 +69,9 @@
     delimiters: ["[[", "]]"],
     data: {
         result : [],
-        query : '{user (first :20) {edges{node{id, userid,name,surname,age}}}}'
+        query : `
+        {user (first :20) {edges{node{id, userid,name,surname,age}}}}
+        `
     },
     methods: {
       on_key_press(e) {
@@ -89,9 +90,6 @@
           .then((response) => {
             var obj = response.data;
             this.result = obj.user.edges
-
-
-            
           });
       }, // end content
     }, // end methods
