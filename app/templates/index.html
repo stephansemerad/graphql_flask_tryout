@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <html>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Tailwind  -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Vue, Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.4/axios.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap"
+      rel="stylesheet"
+    />
+  </html>
+
+  <body>
+    <div id="app">
+      <div class="container mx-auto">
+        <div class="mt-20">
+
+          <div class="flex flex-col">
+            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+              <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                  <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                      <tr>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Surname</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Age</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- Odd row -->
+                      <tr v-for="row in result" class="bg-white">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">[[row.node.userid]]</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">[[row.node.surname]]</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">[[row.node.age]]</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">[[row.node.name]]</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">[[row.node.name]]</td>
+                      </tr>
+                      <!-- More people... -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  new Vue({
+    el: "#app",
+    delimiters: ["[[", "]]"],
+    data: {
+        result : [],
+        query : '{user (first :10) {edges{node{id, userid,name,surname,age}}}}'
+    },
+    methods: {
+      on_key_press(e) {
+        if (e.which === 13) {
+          this.content();
+        }
+      },
+      content: function () {
+        console.log("[+] content");
+        axios
+          .get("/endpoint", {
+            params: {
+              query: this.query
+            },
+          })
+          .then((response) => {
+            var obj = response.data;
+            this.result = obj.user.edges
+
+
+            
+          });
+      }, // end content
+    }, // end methods
+    mounted: function () {
+      window.addEventListener("keypress", this.on_key_press);
+      this.content();
+    }, // end mounted
+  }); // end vue app
+</script>
