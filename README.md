@@ -3,7 +3,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/stephansemerad/graphql_flask_tryout">
-    <img src="app/statuc/graphql.png" alt="Logo" width="80" height="80">
+    <img src="app/static/graphql.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">GRAPHQL / Flask / SQL alchemy template</h3>
