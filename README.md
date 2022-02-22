@@ -2,8 +2,8 @@
 
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/stephansemerad/graphql_flask_tryout">
+    <img src="app/statuc/graphql.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">GRAPHQL / Flask / SQL alchemy template</h3>
@@ -13,7 +13,8 @@
 
 ## About The Project
 
-    This is just a tryout of GRAPH QL and how to get queries working between FLASK SQL Alchemy and GraphQL and how to use it with Vue.js
+    This is just a tryout of GRAPH QL and how to get queries working <br>
+     between FLASK SQL Alchemy and GraphQL and how to use it with Vue.js<br>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
